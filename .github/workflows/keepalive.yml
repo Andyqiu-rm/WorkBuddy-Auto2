@@ -1,0 +1,51 @@
+name: Keep Alive
+
+# 保活工作流：防止仓库长期没有提交，被 GitHub 判定为“不活跃”。
+# 说明：这个规则官方只针对“公开仓库”，私有仓库其实不会触发；
+# 而且你的签到脚本每天会回写 Token 文件，本身就是提交活动。
+# 所以这是一个“保险丝”，平时几乎不干活，只有真的 45 天没人提交时才动一下。
+
+on:
+  workflow_dispatch:
+  schedule:
+    # GitHub 的 cron 用 UTC 时间。下面这行 = 北京时间每周一 09:00
+    - cron: "0 1 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: keepalive
+  cancel-in-progress: false
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # 拉到默认分支（不是游离状态），才能正常提交推送
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Check recent activity and keep alive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          last=$(git log -1 --format=%ct)
+          now=$(date +%s)
+          days=$(( (now - last) / 86400 ))
+          echo "距最后一次提交已过去 ${days} 天"
+
+          if [ "$days" -ge 45 ]; then
+            # 先同步一下远端，避免和签到任务的提交撞车
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            # 只做一个空提交，不改动任何真实文件
+            git commit --allow-empty -m "chore: keep alive [skip ci]"
+            git push
+            echo "已完成一次保活空提交"
+          else
+            echo "近期已有活动，无需保活"
+          fi

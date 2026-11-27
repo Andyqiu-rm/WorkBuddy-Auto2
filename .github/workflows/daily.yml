@@ -3,17 +3,22 @@ name: Daily
 on:
   workflow_dispatch:
   schedule:
-    # UTC: Beijing 07:00, 12:00, and 23:30
-    - cron: "0 23 * * *"
-    - cron: "0 4 * * *"
-    - cron: "30 15 * * *"
-
+    # 已指定 Asia/Shanghai，下面 cron 直接按北京时间解释，不用减 8 小时
+    # Beijing 07:07,10:07,and 15：07
+    - cron: '7 7 * * *'
+      timezone: Asia/Shanghai
+    - cron: '7 11 * * *'
+      timezone: Asia/Shanghai
+    - cron: '7 15 * * *'
+      timezone: Asia/Shanghai
+    
 permissions:
   contents: write
 
 concurrency:
   group: daily
   cancel-in-progress: false
+  queue: max
 
 jobs:
   run:
