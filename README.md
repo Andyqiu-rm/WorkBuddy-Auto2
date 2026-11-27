@@ -1,11 +1,35 @@
+<div align="center">
+
 # 🌱 WorkBuddy Auto
 
-> 把每天重复点击的工作交给 GitHub。  
-> 配置一次，云端自动签到、做任务、领奖励，不需要服务器，也不用一直开着电脑。
+> **把每天重复点击的工作交给 GitHub**
+>
+> 配置一次，云端自动签到、做任务、领奖励 —— 不需要服务器，也不用一直开着电脑。
 
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-Automation-2088FF)
-![License](https://img.shields.io/badge/License-MIT-green)
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-Automation-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-2EA44F?style=for-the-badge)
+
+</div>
+
+---
+
+## 📑 目录
+
+- [✨ 它能做什么](#-它能做什么)
+- [🚀 五分钟部署](#-五分钟部署)
+  - [1. 用模板创建自己的仓库](#1-用模板创建自己的仓库)
+  - [2. 获取 Token](#2-获取-token)
+  - [3. 把 Token 放进 GitHub Secret](#3-把-token-放进-github-secret)
+  - [4. 允许 Actions 保存新 Token](#4-允许-actions-保存新-token)
+  - [5. 点一下，让它跑起来](#5-点一下让它跑起来)
+- [🔄 Token 为什么不用天天换](#-token-为什么不用天天换)
+- [📁 仓库里有什么](#-仓库里有什么)
+- [🔐 请认真看这几条](#-请认真看这几条)
+- [❓ 常见问题](#-常见问题)
+- [📄 许可证](#-许可证)
+
+---
 
 ## ✨ 它能做什么
 
@@ -18,7 +42,8 @@
 | 👥 多账号 | 一个 JSON 文件可保存多个账号 |
 | 📣 消息通知 | 可选 PushPlus 微信通知 |
 
-GitHub Actions 默认在北京时间每天 **07:00、12:00 和 23:30** 自动运行。
+> [!NOTE]
+> GitHub Actions 默认在北京时间每天 **07:00、12:00 和 23:30** 自动运行。
 
 ## 🚀 五分钟部署
 
@@ -914,21 +939,25 @@ Daily
 
 ## 📁 仓库里有什么
 
-```text
-.github/workflows/daily.yml  GitHub Actions 工作流
-daily.py                     主程序
-requirements.txt             Python 依赖
-wb_refresh_tokens.example.jsonc  多账号填写示例（带注释，不参与运行）
-LICENSE                      开源许可证
-```
+| 文件 | 用途 |
+| --- | --- |
+| `.github/workflows/daily.yml` | GitHub Actions 工作流 |
+| `.github/workflows/keepalive.yml` | 保活工作流 |
+| `daily.py` | 主程序 |
+| `requirements.txt` | Python 依赖 |
+| `wb_refresh_tokens.example.jsonc` | 多账号填写示例（带注释，不参与运行） |
+| `LICENSE` | 开源许可证 |
 
 ## 🔐 请认真看这几条
 
-- 从模板创建的运行仓库必须保持 `Private`
-- 不要公开手机号、AT、RT 或 `wb_refresh_tokens.json`
-- 真实 Token 只能放在私有仓库的 `wb_refresh_tokens.json`，不要写进 README、脚本或工作流文件
-- 不要让多个仓库同时运行同一个账号，否则 Token 可能互相覆盖
-- 更换仓库前，先停用旧仓库的 Actions
+> [!CAUTION]
+> 以下每一条都关乎账号安全，部署前请务必逐条确认。
+
+- ✅ 从模板创建的运行仓库必须保持 `Private`
+- ✅ 不要公开手机号、AT、RT 或 `wb_refresh_tokens.json`
+- ✅ 真实 Token 只能放在私有仓库的 `wb_refresh_tokens.json`，不要写进 README、脚本或工作流文件
+- ✅ 不要让多个仓库同时运行同一个账号，否则 Token 可能互相覆盖
+- ✅ 更换仓库前，先停用旧仓库的 Actions
 
 ## ❓ 常见问题
 
@@ -957,4 +986,12 @@ GitHub Actions 使用 Linux。只能在 Windows 桌面端完成的任务会自�
 
 本项目采用 [MIT License](LICENSE)。
 
-如果这个项目帮你省下了一点时间，欢迎点个 ⭐。
+---
+
+<div align="center">
+
+如果这个项目帮你省下了一点时间，欢迎点个 ⭐ Star，让更多人看到它。
+
+🌱 *WorkBuddy Auto — 把重复交给云端，把时间留给自己*
+
+</div>
