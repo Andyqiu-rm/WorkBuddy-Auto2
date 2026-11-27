@@ -982,6 +982,22 @@ GitHub Actions 使用 Linux。只能在 Windows 桌面端完成的任务会自�
 
 </details>
 
+<a id="donate"></a>
+## ☕ 支持与投喂：微信与支付宝赞赏码
+
+脚本完全免费，赞赏纯自愿，不影响任何功能。
+
+<p align="center">
+  <img src="assets/donate-wechat.png" width="260" alt="微信赞赏码" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/donate-alipay.jpg" width="260" alt="支付宝收款码" />
+</p>
+
+<p align="center"><sub>微信支付（左） · 支付宝（右）</sub></p>
+
+> [!WARNING]
+> 收款码仅用于向作者自愿赞赏。任何第三方以代下载、代部署、内部资源、会员群或官方授权为由收费，均与作者无关。
+
 ## 📄 许可证
 
 本项目采用 [MIT License](LICENSE)。
