@@ -9,7 +9,7 @@
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-Automation-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-2EA44F?style=for-the-badge)
-
+[![Schedule](https://img.shields.io/badge/定时-07%3A07%20%2F%2011%3A07%20%2F%2015%3A07-orange)](https://github.com/features/actions)
 </div>
 
 ---
